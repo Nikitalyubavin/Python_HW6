@@ -12,9 +12,20 @@
 
 k = int(input('Введите натуральное число, меньшее 100000: '))
 
-for item in range(k):
+temp = 0
+
+for item in range(1, k):
+    if (item == temp): continue
     sum = 0
-    for i in range(item):
-        if (item % (i+1) == 0):
-            sum += (i+1)
-    print (item, sum)
+    for i in range(1, item):
+        if (item == (i)): continue
+        elif (item % (i) == 0): sum += i
+    summa = 0
+    for i in range(1, sum):
+        if (sum == (i)): continue
+        elif (sum % (i) == 0): summa += i
+    if (item == summa and item != sum):
+        print(item, sum)
+        temp = sum
+
+if (temp == 0): print('В заданном диапазоне дружественных чисел не существует!')
